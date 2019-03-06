@@ -38,7 +38,7 @@ type AuthConfig struct {
 type Client struct {
 	Auth    *AuthConfig
 	BaseURL *url.URL
-	client  *http.Client
+	Client  *http.Client
 
 	ACLs         *ACLService
 	Clients      *ApiClientService
