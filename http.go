@@ -144,7 +144,7 @@ func NewClient(cfg *Config) (*Client, error) {
 			PrivateKey: pk,
 			ClientName: cfg.Name,
 		},
-		client: &http.Client{
+		Client: &http.Client{
 			Transport: tr,
 			Timeout:   cfg.Timeout * time.Second,
 		},
@@ -231,7 +231,7 @@ func CheckResponse(r *http.Response) error {
 
 // Do is used either internally via our magic request shite or a user may use it
 func (c *Client) Do(req *http.Request, v interface{}) (*http.Response, error) {
-	res, err := c.client.Do(req)
+	res, err := c.Client.Do(req)
 	if err != nil {
 		return nil, err
 	}
